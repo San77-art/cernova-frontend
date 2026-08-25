@@ -1,0 +1,22 @@
+﻿version: 0.2
+
+phases:
+  pre_build:
+    commands:
+      - echo Logging in to Amazon ECR...
+      - aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 526426842645.dkr.ecr.us-east-1.amazonaws.com
+      - REPOSITORY_NAME=cernova-frontend
+      - IMAGE_TAG=latest
+  build:
+    commands:
+      - echo Build started on `date`
+      - docker build -t $REPOSITORY_NAME:$IMAGE_TAG .
+      - docker tag $REPOSITORY_NAME:$IMAGE_TAG 526426842645.dkr.ecr.us-east-1.amazonaws.com/$REPOSITORY_NAME:$IMAGE_TAG
+  post_build:
+    commands:
+      - echo Build completed on `date`
+      - docker push 526426842645.dkr.ecr.us-east-1.amazonaws.com/$REPOSITORY_NAME:$IMAGE_TAG
+      - echo Writing image definitions file...
+      - printf '[{"name":"cernova-frontend","imageUri":"%s"}]' 526426842645.dkr.ecr.us-east-1.amazonaws.com/$REPOSITORY_NAME:$IMAGE_TAG > imagedefinitions.json
+artifacts:
+  files: imagedefinitions.json
