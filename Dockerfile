@@ -3,11 +3,10 @@
 WORKDIR /app
 
 COPY package*.json ./
-RUN npm install --legacy-peer-deps --omit=dev
+RUN npm install --legacy-peer-deps
 
 COPY . .
-COPY .next ./.next
 
 EXPOSE 3000
 
-CMD ["node_modules/.bin/next", "start"]
+CMD ["npm", "start"]
