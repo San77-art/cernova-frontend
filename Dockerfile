@@ -2,11 +2,19 @@
 
 WORKDIR /app
 
-COPY package*.json ./
-RUN npm install --legacy-peer-deps
+# Copiar package.json e .next PRÉ-FEITO
+COPY package.json package-lock.json ./
+COPY .next ./.next ./
+COPY public ./public ./
 
-COPY . .
+# Instalar APENAS dependências de produção
+RUN npm install --legacy-peer-deps --omit=dev
+
+# NEXTAUTH secret
+ENV NEXTAUTH_SECRET=9N1RimvqIf4awYztjusrOdHkVxKGAgC7
+ENV NEXTAUTH_URL=http://localhost:3000
 
 EXPOSE 3000
 
-CMD ["npm", "start"]
+# Iniciar sem build
+CMD ["node_modules/.bin/next", "start"]
