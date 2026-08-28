@@ -1,0 +1,46 @@
+﻿{
+  "name": "cernova-frontend-build",
+  "source": {
+    "type": "GITHUB",
+    "location": "https://github.com/San77-art/cernova-frontend.git",
+    "gitCloneDepth": 1
+  },
+  "artifacts": {
+    "type": "NO_ARTIFACTS"
+  },
+  "environment": {
+    "type": "LINUX_CONTAINER",
+    "computeType": "BUILD_GENERAL1_SMALL",
+    "image": "aws/codebuild/standard:7.0",
+    "environmentVariables": [
+      {
+        "name": "AWS_ACCOUNT_ID",
+        "value": "526426842645",
+        "type": "PLAINTEXT"
+      },
+      {
+        "name": "AWS_DEFAULT_REGION",
+        "value": "us-east-1",
+        "type": "PLAINTEXT"
+      },
+      {
+        "name": "IMAGE_REPO_NAME",
+        "value": "cernova-frontend",
+        "type": "PLAINTEXT"
+      },
+      {
+        "name": "IMAGE_TAG",
+        "value": "latest",
+        "type": "PLAINTEXT"
+      }
+    ],
+    "privilegedMode": true
+  },
+  "serviceRole": "arn:aws:iam::526426842645:role/CodeBuildServiceRole",
+  "logsConfig": {
+    "cloudWatchLogs": {
+      "status": "ENABLED",
+      "groupName": "/aws/codebuild/cernova-frontend"
+    }
+  }
+}
