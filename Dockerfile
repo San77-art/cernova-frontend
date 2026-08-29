@@ -2,19 +2,17 @@
 
 WORKDIR /app
 
-# Copiar package.json e .next PRÉ-FEITO
-COPY package.json package-lock.json ./
-COPY .next ./.next ./
-COPY public ./public ./
+COPY package*.json ./
+RUN npm install --legacy-peer-deps
 
-# Instalar APENAS dependências de produção
-RUN npm install --legacy-peer-deps --omit=dev
+COPY . .
 
-# NEXTAUTH secret
-ENV NEXTAUTH_SECRET=9N1RimvqIf4awYztjusrOdHkVxKGAgC7
-ENV NEXTAUTH_URL=http://localhost:3000
+# Build AQUI dentro do Docker (com cache)
+RUN npm run build
 
 EXPOSE 3000
 
-# Iniciar sem build
-CMD ["node_modules/.bin/next", "start"]
+ENV NEXTAUTH_SECRET=9N1RimvqIf4awYztjusrOdHkVxKGAgC7
+ENV NEXTAUTH_URL=http://localhost:3000
+
+CMD ["npm", "start"]
