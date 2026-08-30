@@ -1,3 +1,0 @@
-module.exports=[51553,a=>{"use strict";var b=a.i(87924);a.s(["default",0,function(){return(0,b.jsxs)("div",{className:"space-y-6",children:[(0,b.jsx)("h1",{className:"text-4xl font-bold text-white",children:"04 - Entregas"}),(0,b.jsx)("div",{className:"bg-slate-800 border border-slate-700 rounded-lg p-8",children:(0,b.jsx)("p",{className:"text-slate-300",children:"Seus relatórios e entregas mensais aparecerão aqui"})})]})}])}];
-
-//# sourceMappingURL=app_app_04-entregas_page_tsx_1ylxs3l._.js.map

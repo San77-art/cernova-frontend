@@ -1,3 +1,0 @@
-module.exports=[41606,a=>{"use strict";var b=a.i(87924);a.s(["default",0,function(){return(0,b.jsxs)("div",{className:"space-y-6",children:[(0,b.jsx)("h1",{className:"text-4xl font-bold text-white",children:"02 - Diagnóstico 360"}),(0,b.jsx)("div",{className:"bg-slate-800 border border-slate-700 rounded-lg p-8",children:(0,b.jsxs)("div",{className:"space-y-4",children:[(0,b.jsx)("p",{className:"text-slate-300",children:"Análise completa em progresso..."}),(0,b.jsx)("div",{className:"w-full bg-slate-900 rounded-full h-2",children:(0,b.jsx)("div",{className:"bg-amber-500 h-2 rounded-full w-1/2"})}),(0,b.jsx)("p",{className:"text-slate-400 text-sm",children:"50% concluído"})]})})]})}])}];
-
-//# sourceMappingURL=app_app_02-diagnostico-360_page_tsx_0-y7agt._.js.map
