@@ -1,0 +1,11 @@
+{
+  "/_global-error/page": "app/_global-error/page.js",
+  "/_not-found/page": "app/_not-found/page.js",
+  "/agro/page": "app/agro/page.js",
+  "/api/health/route": "app/api/health/route.js",
+  "/contato/page": "app/contato/page.js",
+  "/favicon.ico/route": "app/favicon.ico/route.js",
+  "/page": "app/page.js",
+  "/raio-x/page": "app/raio-x/page.js",
+  "/saude/page": "app/saude/page.js"
+}

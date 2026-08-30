@@ -1,0 +1,11 @@
+{
+  "/_global-error/page": "/_global-error",
+  "/_not-found/page": "/_not-found",
+  "/agro/page": "/agro",
+  "/api/health/route": "/api/health",
+  "/contato/page": "/contato",
+  "/favicon.ico/route": "/favicon.ico",
+  "/page": "/",
+  "/raio-x/page": "/raio-x",
+  "/saude/page": "/saude"
+}
