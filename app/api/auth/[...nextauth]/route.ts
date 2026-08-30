@@ -2,22 +2,21 @@
 import CredentialsProvider from "next-auth/providers/credentials";
 
 const handler = NextAuth({
+  debug: true,
   providers: [
     CredentialsProvider({
-      name: "Credentials",
-      credentials: {
-        email: { label: "Email", type: "email" },
-        password: { label: "Password", type: "password" },
-      },
       async authorize(credentials) {
+        console.log("✅ LOGIN ATTEMPT:", credentials?.email);
         if (credentials?.email && credentials?.password) {
-          return {
+          const user = {
             id: "1",
             email: credentials.email,
             name: credentials.email.split("@")[0],
-            role: "cliente",
           };
+          console.log("✅ USER AUTHORIZED:", user);
+          return user;
         }
+        console.log("❌ AUTH FAILED");
         return null;
       },
     }),
@@ -25,24 +24,37 @@ const handler = NextAuth({
   pages: {
     signIn: "/login",
   },
+  callbacks: {
+    async jwt({ token, user }) {
+      console.log("🔐 JWT CALLBACK:", { token, user });
+      if (user) {
+        token.id = user.id;
+        token.email = user.email;
+      }
+      return token;
+    },
+    async session({ session, token }) {
+      console.log("📦 SESSION CALLBACK:", { session, token });
+      session.user.id = token.id;
+      session.user.email = token.email;
+      return session;
+    },
+  },
   session: {
     strategy: "jwt",
     maxAge: 30 * 24 * 60 * 60,
   },
   secret: process.env.NEXTAUTH_SECRET,
   trustHost: true,
-  callbacks: {
-    async jwt({ token, user }) {
-      if (user) {
-        token.role = user.role;
-        token.email = user.email;
-      }
-      return token;
-    },
-    async session({ session, token }) {
-      session.user.role = token.role;
-      session.user.email = token.email;
-      return session;
+  cookies: {
+    sessionToken: {
+      name: `__Secure-next-auth.session-token`,
+      options: {
+        httpOnly: true,
+        secure: true,
+        sameSite: "lax",
+        path: "/",
+      },
     },
   },
 });
