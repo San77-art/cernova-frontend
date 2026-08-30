@@ -1,15 +1,12 @@
-﻿# Dockerfile SIMPLES - sem build
-FROM node:20-alpine
+﻿FROM node:20-alpine
 
 WORKDIR /app
 
-# Copiar APENAS dependências de produção
 COPY package*.json ./
-RUN npm install --legacy-peer-deps --omit=dev
+RUN npm install --legacy-peer-deps
 
-# Copiar código e .next JÁ BUILDADO
-COPY .next ./.next
-COPY public ./public
+COPY . .
+RUN npm run build
 
 ENV NEXTAUTH_SECRET=9N1RimvqIf4awYztjusrOdHkVxKGAgC7
 ENV NEXTAUTH_URL=https://cernova.com.br
