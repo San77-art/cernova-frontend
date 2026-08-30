@@ -1,6 +1,0 @@
-{
-  "version": 3,
-  "sources": [],
-  "sections": [
-    {"offset": {"line": 4, "column": 0}, "map": {"version":3,"sources":["file:///C:/Users/User/cernova-frontend/app/providers.tsx"],"sourcesContent":["\"use client\";\n\nimport { SessionProvider } from \"next-auth/react\";\n\nexport function AuthProvider({ children }: { children: React.ReactNode }) {\n  return <SessionProvider>{children}</SessionProvider>;\n}\r\n"],"names":["AuthProvider","children"],"mappings":";;;;;AAEA;AAFA;;;AAIO,SAASA,aAAa,EAAEC,QAAQ,EAAiC;IACtE,qBAAO,6LAAC,oKAAe;kBAAEA;;;;;;AAC3B;KAFgBD"}}]
-}

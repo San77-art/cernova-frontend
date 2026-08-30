@@ -1,6 +1,0 @@
-{
-  "version": 3,
-  "sources": [],
-  "sections": [
-    {"offset": {"line": 148, "column": 0}, "map": {"version":3,"sources":["file:///C:/Users/User/cernova-frontend/app/api/health/route.ts"],"sourcesContent":["import axios from \"axios\";\n\nconst API_URL = process.env.NEXT_PUBLIC_API_URL || \"http://98.92.226.19:8000\";\n\nexport async function GET() {\n  try {\n    const response = await axios.get(`${API_URL}/health`);\n    return Response.json(response.data);\n  } catch (error: any) {\n    return Response.json(\n      { error: error.message },\n      { status: 500 }\n    );\n  }\n}\r\n"],"names":["API_URL","GET","response","get","Response","json","data","error","message","status"],"mappings":";;;;AAAA;;AAEA,MAAMA,UAAU,gEAAmC;AAE5C,eAAeC;IACpB,IAAI;QACF,MAAMC,WAAW,MAAM,kJAAK,CAACC,GAAG,CAAC,GAAGH,QAAQ,OAAO,CAAC;QACpD,OAAOI,SAASC,IAAI,CAACH,SAASI,IAAI;IACpC,EAAE,OAAOC,OAAY;QACnB,OAAOH,SAASC,IAAI,CAClB;YAAEE,OAAOA,MAAMC,OAAO;QAAC,GACvB;YAAEC,QAAQ;QAAI;IAElB;AACF"}}]
-}

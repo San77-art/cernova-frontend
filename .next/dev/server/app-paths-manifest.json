@@ -1,9 +1,0 @@
-{
-  "/_not-found/page": "app/_not-found/page.js",
-  "/api/auth/[...nextauth]/route": "app/api/auth/[...nextauth]/route.js",
-  "/app/00-cadastro/page": "app/app/00-cadastro/page.js",
-  "/app/02-diagnostico-360/page": "app/app/02-diagnostico-360/page.js",
-  "/app/04-entregas/page": "app/app/04-entregas/page.js",
-  "/app/visao-geral/page": "app/app/visao-geral/page.js",
-  "/login/page": "app/login/page.js"
-}

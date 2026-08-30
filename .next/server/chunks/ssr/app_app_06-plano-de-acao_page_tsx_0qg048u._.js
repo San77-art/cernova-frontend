@@ -1,0 +1,3 @@
+module.exports=[26958,a=>{"use strict";var b=a.i(87924);a.s(["default",0,function(){return(0,b.jsxs)("div",{className:"space-y-6",children:[(0,b.jsx)("h1",{className:"text-4xl font-bold text-white",children:"06 - Plano de Ação"}),(0,b.jsx)("div",{className:"bg-slate-800 border border-slate-700 rounded-lg p-8",children:(0,b.jsx)("p",{className:"text-slate-300",children:"Seu plano de ação personalizado será desenvolvido aqui"})})]})}])}];
+
+//# sourceMappingURL=app_app_06-plano-de-acao_page_tsx_0qg048u._.js.map

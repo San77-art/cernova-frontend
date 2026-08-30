@@ -1,6 +1,0 @@
-{
-  "version": 3,
-  "sources": [],
-  "sections": [
-    {"offset": {"line": 4, "column": 0}, "map": {"version":3,"sources":["file:///C:/Users/User/cernova-frontend/app/app/04-entregas/page.tsx"],"sourcesContent":["\"use client\";\nexport default function EntregasPage() {\n  return (\n    <div className=\"space-y-6\">\n      <h1 className=\"text-4xl font-bold text-white\">04 - Entregas</h1>\n      <div className=\"bg-slate-800 border border-slate-700 rounded-lg p-8\">\n        <p className=\"text-slate-300\">Seus relatórios e entregas mensais aparecerão aqui</p>\n      </div>\n    </div>\n  );\n}\r\n"],"names":["EntregasPage","className"],"mappings":";;;;;AAAA;;AACe,SAASA;IACtB,qBACE,8OAAC;QAAIC,WAAU;;0BACb,8OAAC;gBAAGA,WAAU;0BAAgC;;;;;;0BAC9C,8OAAC;gBAAIA,WAAU;0BACb,cAAA,8OAAC;oBAAEA,WAAU;8BAAiB;;;;;;;;;;;;;;;;;AAItC"}}]
-}

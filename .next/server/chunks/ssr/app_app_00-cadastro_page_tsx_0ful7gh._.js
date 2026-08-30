@@ -1,0 +1,3 @@
+module.exports=[93291,a=>{"use strict";var b=a.i(87924);a.s(["default",0,function(){return(0,b.jsxs)("div",{className:"space-y-6",children:[(0,b.jsx)("h1",{className:"text-4xl font-bold text-white",children:"00 - Cadastro & Contrato"}),(0,b.jsx)("div",{className:"bg-slate-800 border border-slate-700 rounded-lg p-8",children:(0,b.jsxs)("div",{className:"space-y-4",children:[(0,b.jsx)("div",{className:"p-4 bg-green-600/10 border border-green-600/30 rounded text-green-400",children:"✅ Cadastro Completo"}),(0,b.jsx)("p",{className:"text-slate-300",children:"Seus dados estão registrados e validados em nosso sistema."})]})})]})}])}];
+
+//# sourceMappingURL=app_app_00-cadastro_page_tsx_0ful7gh._.js.map
