@@ -1,6 +1,4 @@
 ﻿"use client";
-
-import { signIn } from "next-auth/react";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
@@ -9,23 +7,19 @@ export default function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    setError("");
 
-    const result = await signIn("credentials", {
-      email,
-      password,
-      redirect: false,
-    });
-
-    if (result?.ok) {
+    // DEMO APENAS - salvar no localStorage
+    if (email && password) {
+      localStorage.setItem("user_email", email);
+      localStorage.setItem("user_name", email.split("@")[0]);
+      localStorage.setItem("logged_in", "true");
+      
+      // Redirecionar
       router.push("/app/visao-geral");
-    } else {
-      setError("Email ou senha inválidos");
     }
     setLoading(false);
   };
@@ -34,7 +28,6 @@ export default function LoginPage() {
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 flex items-center justify-center">
       <div className="bg-slate-800 border border-slate-700 rounded-lg p-8 w-full max-w-md">
         <h1 className="text-3xl font-bold text-white mb-8 text-center">Cernova</h1>
-
         <form onSubmit={handleSubmit} className="space-y-6">
           <div>
             <label className="block text-white font-semibold mb-2">Email</label>
@@ -47,7 +40,6 @@ export default function LoginPage() {
               placeholder="seu@email.com"
             />
           </div>
-
           <div>
             <label className="block text-white font-semibold mb-2">Senha</label>
             <input
@@ -59,13 +51,6 @@ export default function LoginPage() {
               placeholder="••••••••"
             />
           </div>
-
-          {error && (
-            <div className="p-3 bg-red-900/20 border border-red-700 text-red-300 rounded">
-              {error}
-            </div>
-          )}
-
           <button
             type="submit"
             disabled={loading}
@@ -74,9 +59,8 @@ export default function LoginPage() {
             {loading ? "Entrando..." : "Entrar"}
           </button>
         </form>
-
-        <p className="text-slate-400 text-sm text-center mt-6">
-          Para teste, use qualquer email/senha
+        <p className="text-slate-400 text-sm text-center mt-6 text-yellow-400">
+          ⚠️ DEMO: Qualquer email/senha funciona
         </p>
       </div>
     </div>

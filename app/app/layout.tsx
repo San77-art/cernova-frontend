@@ -1,12 +1,24 @@
 ﻿"use client";
-import { signOut, useSession } from "next-auth/react";
 import Link from "next/link";
-
-// ⚠️ TEMPORÁRIO: Removed session validation for demo
-// TODO: Fix NextAuth session persistence before production
+import { useEffect, useState } from "react";
 
 export default function AppLayout({ children }: { children: React.ReactNode }) {
-  const { data: session } = useSession();
+  const [email, setEmail] = useState("");
+
+  useEffect(() => {
+    // Ler do localStorage
+    const userEmail = localStorage.getItem("user_email");
+    if (userEmail) {
+      setEmail(userEmail);
+    }
+  }, []);
+
+  const handleLogout = () => {
+    localStorage.removeItem("user_email");
+    localStorage.removeItem("user_name");
+    localStorage.removeItem("logged_in");
+    window.location.href = "/login";
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
@@ -14,9 +26,9 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           <h1 className="text-2xl font-bold text-amber-500">Cernova</h1>
           <div className="flex items-center gap-4">
-            <span className="text-slate-300">{session?.user?.email || "Demo User"}</span>
+            <span className="text-slate-300">{email || "Demo User"}</span>
             <button
-              onClick={() => signOut()}
+              onClick={handleLogout}
               className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded"
             >
               Sair
