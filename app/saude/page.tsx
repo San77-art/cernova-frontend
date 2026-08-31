@@ -4,46 +4,75 @@ export default function SaudePage() {
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 p-8">
       <div className="max-w-6xl mx-auto">
         <h1 className="text-4xl font-bold text-white mb-2">Cernova Saúde</h1>
-        <p className="text-amber-500 text-xl mb-8">Diagnóstico Fiscal e Patrimonial para Médicos e Clínicas</p>
+        <p className="text-amber-500 text-lg mb-8">Diagnóstico Fiscal Jurisprudencial para Médicos e Clínicas</p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-          <div className="bg-slate-800 border border-slate-700 rounded-lg p-6">
-            <h2 className="text-2xl font-bold text-white mb-4">📋 ICP - Médicos</h2>
-            <ul className="text-slate-300 space-y-2">
-              <li>✅ Consultórios individuais (1-5 médicos)</li>
-              <li>✅ Clínicas médicas (5-50 profissionais)</li>
-              <li>✅ Hospitais especializados</li>
-              <li>✅ Faturamento: R$ 200k - R$ 10M/ano</li>
-            </ul>
-          </div>
-
-          <div className="bg-slate-800 border border-slate-700 rounded-lg p-6">
-            <h2 className="text-2xl font-bold text-white mb-4">🎯 Produtos</h2>
-            <ul className="text-slate-300 space-y-2">
-              <li>✅ Raio-X Fiscal (Compliance)</li>
-              <li>✅ Planejamento Patrimonial</li>
-              <li>✅ LGPD e Privacidade</li>
-              <li>✅ Successório (Herança/Trusts)</li>
-            </ul>
+        {/* ICP */}
+        <div className="bg-blue-900/20 border border-blue-700 rounded-lg p-8 mb-8">
+          <h2 className="text-2xl font-bold text-blue-400 mb-6">🎯 Perfil do Cliente Ideal</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div>
+              <h3 className="font-bold text-white mb-3">📊 Porte</h3>
+              <ul className="text-slate-300 space-y-2 text-sm">
+                <li>✅ Renda PF: R$50k+ /mês</li>
+                <li>✅ Clínica: R$1M - R$20M/ano</li>
+                <li>✅ Estrutura: PJ + Patrimônio</li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="font-bold text-white mb-3">🔴 Dores Críticas</h3>
+              <ul className="text-slate-300 space-y-2 text-sm">
+                <li>❌ Enquadramento fiscal frágil</li>
+                <li>❌ Confusão patrimonial</li>
+                <li>❌ Risco de glosa CARF</li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="font-bold text-white mb-3">🔔 Gatilhos de Compra</h3>
+              <ul className="text-slate-300 space-y-2 text-sm">
+                <li>📮 Recebeu intimação Receita</li>
+                <li>🏢 Vai vender/crescer clínica</li>
+                <li>📋 Reforma tributária 2026</li>
+              </ul>
+            </div>
           </div>
         </div>
 
-        <div className="bg-slate-800 border border-slate-700 rounded-lg p-6">
-          <h2 className="text-2xl font-bold text-white mb-4">📊 Riscos Identificados</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <div className="bg-red-900/20 border border-red-700 rounded p-4">
-              <h3 className="font-bold text-red-400">🔴 Crítico</h3>
-              <p className="text-sm text-slate-300 mt-2">Compliance tributário - Glosas INSS/Receita</p>
-            </div>
-            <div className="bg-yellow-900/20 border border-yellow-700 rounded p-4">
-              <h3 className="font-bold text-yellow-400">🟡 Alto</h3>
-              <p className="text-sm text-slate-300 mt-2">Sucessão patrimonial não planejada</p>
-            </div>
-            <div className="bg-blue-900/20 border border-blue-700 rounded p-4">
-              <h3 className="font-bold text-blue-400">🔵 Médio</h3>
-              <p className="text-sm text-slate-300 mt-2">LGPD e proteção de dados de pacientes</p>
-            </div>
+        {/* PRODUTOS */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+          <div className="bg-slate-800 border border-slate-700 rounded-lg p-6">
+            <h2 className="text-2xl font-bold text-white mb-4">📋 Raio-X Fiscal</h2>
+            <p className="text-slate-300 mb-4">Diagnóstico jurisprudencial de risco com lastro em:</p>
+            <ul className="text-slate-300 space-y-2">
+              <li>✅ STJ REsp 1.877.568 (anestesiologia)</li>
+              <li>✅ Súmula CARF 142 (serviços hospitalares)</li>
+              <li>✅ Acórdão CARF 2401-002.873 (pró-labore)</li>
+              <li>✅ Lei 13.874/2019 (reclassificação)</li>
+            </ul>
+            <p className="text-amber-500 font-bold mt-6">R$ 5.000 - R$ 15.000</p>
           </div>
+
+          <div className="bg-slate-800 border border-slate-700 rounded-lg p-6">
+            <h2 className="text-2xl font-bold text-white mb-4">📊 Planejamento Tributário</h2>
+            <p className="text-slate-300 mb-4">Estruturação fiscal com defesa robusta:</p>
+            <ul className="text-slate-300 space-y-2">
+              <li>✅ Dossiê jurisprudencial</li>
+              <li>✅ Reforma tributária 2026 (IBS/CBS)</li>
+              <li>✅ Planejamento sucessório</li>
+              <li>✅ Compliance LGPD + Receita Saúde</li>
+            </ul>
+            <p className="text-amber-500 font-bold mt-6">A partir de R$ 15.000</p>
+          </div>
+        </div>
+
+        {/* REFORMA */}
+        <div className="bg-yellow-900/20 border border-yellow-700 rounded-lg p-6">
+          <h2 className="text-2xl font-bold text-yellow-400 mb-4">⚠️ Reforma Tributária 2026</h2>
+          <p className="text-slate-300 mb-4">Redução de 60% IBS/CBS para saúde, mas 2026 é ano-teste operacional. Clínicas precisam se preparar AGORA.</p>
+          <ul className="text-slate-300 space-y-2">
+            <li>🔔 LC 214/2025: Reduções começam</li>
+            <li>📊 Receita Saúde obrigatório (01/01/2025)</li>
+            <li>🚨 Cruzamento eletrônico com ANS/CFM</li>
+          </ul>
         </div>
       </div>
     </div>
