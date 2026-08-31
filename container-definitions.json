@@ -1,10 +1,27 @@
-[
+﻿[
   {
     "name": "cernova-frontend",
     "image": "526426842645.dkr.ecr.us-east-1.amazonaws.com/cernova-frontend:latest",
     "portMappings": [
       {
-        "containerPort": 3000
+        "containerPort": 3000,
+        "hostPort": 3000,
+        "protocol": "tcp"
+      }
+    ],
+    "essential": true,
+    "environment": [
+      {
+        "name": "NEXTAUTH_SECRET",
+        "value": "WpTLNfAlgWt4mCA4ZsU32YS7h8OskrgWBIatdniPpKM="
+      },
+      {
+        "name": "NEXTAUTH_URL",
+        "value": "https://cernova.com.br"
+      },
+      {
+        "name": "NODE_ENV",
+        "value": "production"
       }
     ],
     "logConfiguration": {
