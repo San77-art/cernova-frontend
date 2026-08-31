@@ -1,22 +1,40 @@
 ﻿"use client";
-
 import { signOut, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 
 export default function AppLayout({ children }: { children: React.ReactNode }) {
   const { data: session, status } = useSession();
   const router = useRouter();
+  const [redirected, setRedirected] = useState(false);
 
   useEffect(() => {
-    if (status === "unauthenticated") {
+    console.log("🔍 Session Status:", status);
+    console.log("👤 Session Data:", session);
+
+    if (status === "unauthenticated" && !redirected) {
+      console.log("❌ UNAUTHENTICATED - Redirecting to login");
+      setRedirected(true);
       router.push("/login");
     }
-  }, [status, router]);
+  }, [status, redirected, router]);
 
-  if (status === "loading") return <div>Carregando...</div>;
+  // Mostrar loading enquanto valida sessão
+  if (status === "loading") {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 flex items-center justify-center">
+        <div className="text-white text-xl">Validando sessão...</div>
+      </div>
+    );
+  }
 
+  // Se não autenticado, não renderizar nada (vai redirecionar)
+  if (status === "unauthenticated") {
+    return null;
+  }
+
+  // Renderizar conteúdo autenticado
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
       {/* Header */}
@@ -34,7 +52,6 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
           </div>
         </div>
       </header>
-
       <div className="flex">
         {/* Sidebar */}
         <aside className="w-64 bg-slate-900 border-r border-slate-700 p-6">
@@ -71,7 +88,6 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
             </Link>
           </nav>
         </aside>
-
         {/* Main Content */}
         <main className="flex-1 p-8">
           {children}
