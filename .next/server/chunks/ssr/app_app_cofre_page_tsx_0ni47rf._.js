@@ -1,0 +1,3 @@
+module.exports=[10687,a=>{"use strict";var b=a.i(87924);a.s(["default",0,function(){return(0,b.jsxs)("div",{className:"space-y-6",children:[(0,b.jsx)("h1",{className:"text-4xl font-bold text-white",children:"🔐 Cofre Digital"}),(0,b.jsxs)("div",{className:"bg-slate-800 border border-slate-700 rounded-lg p-8",children:[(0,b.jsx)("p",{className:"text-slate-300",children:"Seu cofre digital estará disponível em breve"}),(0,b.jsx)("p",{className:"text-slate-500 text-sm mt-4",children:"Guarde documentos, contratos e dados importantes com segurança"})]})]})}])}];
+
+//# sourceMappingURL=app_app_cofre_page_tsx_0ni47rf._.js.map

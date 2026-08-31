@@ -1,0 +1,3 @@
+module.exports=[82676,a=>{"use strict";var b=a.i(87924);a.s(["default",0,function(){return(0,b.jsxs)("div",{className:"space-y-6",children:[(0,b.jsx)("h1",{className:"text-4xl font-bold text-white",children:"Catálogo de Produtos"}),(0,b.jsxs)("div",{className:"bg-slate-800 border border-slate-700 rounded-lg p-8 text-center",children:[(0,b.jsx)("p",{className:"text-slate-400",children:"Nenhum produto disponível ainda"}),(0,b.jsx)("p",{className:"text-slate-500 text-sm mt-2",children:"Os produtos serão adicionados conforme sua jornada progride"})]})]})}])}];
+
+//# sourceMappingURL=app_app_produtos_page_tsx_0qu8s-y._.js.map

@@ -1,0 +1,180 @@
+{
+  "version": 3,
+  "pages404": true,
+  "appType": "app",
+  "caseSensitive": false,
+  "basePath": "",
+  "redirects": [
+    {
+      "source": "/:path+/",
+      "destination": "/:path+",
+      "internal": true,
+      "priority": true,
+      "statusCode": 308,
+      "regex": "^(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))/$"
+    }
+  ],
+  "headers": [],
+  "onMatchHeaders": [],
+  "rewrites": {
+    "beforeFiles": [],
+    "afterFiles": [],
+    "fallback": []
+  },
+  "dynamicRoutes": [
+    {
+      "page": "/api/auth/[...nextauth]",
+      "regex": "^/api/auth/(.+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPnextauth": "nxtPnextauth"
+      },
+      "namedRegex": "^/api/auth/(?<nxtPnextauth>.+?)(?:/)?$"
+    }
+  ],
+  "staticRoutes": [
+    {
+      "page": "/",
+      "regex": "^/(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/(?:/)?$"
+    },
+    {
+      "page": "/_global-error",
+      "regex": "^/_global\\-error(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/_global\\-error(?:/)?$"
+    },
+    {
+      "page": "/_not-found",
+      "regex": "^/_not\\-found(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/_not\\-found(?:/)?$"
+    },
+    {
+      "page": "/agro",
+      "regex": "^/agro(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/agro(?:/)?$"
+    },
+    {
+      "page": "/api/health",
+      "regex": "^/api/health(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/health(?:/)?$"
+    },
+    {
+      "page": "/api/raio-x",
+      "regex": "^/api/raio\\-x(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/raio\\-x(?:/)?$"
+    },
+    {
+      "page": "/app/00-cadastro",
+      "regex": "^/app/00\\-cadastro(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/app/00\\-cadastro(?:/)?$"
+    },
+    {
+      "page": "/app/01-onboarding",
+      "regex": "^/app/01\\-onboarding(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/app/01\\-onboarding(?:/)?$"
+    },
+    {
+      "page": "/app/02-diagnostico-360",
+      "regex": "^/app/02\\-diagnostico\\-360(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/app/02\\-diagnostico\\-360(?:/)?$"
+    },
+    {
+      "page": "/app/03-produtos-contratados",
+      "regex": "^/app/03\\-produtos\\-contratados(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/app/03\\-produtos\\-contratados(?:/)?$"
+    },
+    {
+      "page": "/app/04-entregas",
+      "regex": "^/app/04\\-entregas(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/app/04\\-entregas(?:/)?$"
+    },
+    {
+      "page": "/app/05-reunioes",
+      "regex": "^/app/05\\-reunioes(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/app/05\\-reunioes(?:/)?$"
+    },
+    {
+      "page": "/app/06-plano-de-acao",
+      "regex": "^/app/06\\-plano\\-de\\-acao(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/app/06\\-plano\\-de\\-acao(?:/)?$"
+    },
+    {
+      "page": "/app/cofre",
+      "regex": "^/app/cofre(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/app/cofre(?:/)?$"
+    },
+    {
+      "page": "/app/produtos",
+      "regex": "^/app/produtos(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/app/produtos(?:/)?$"
+    },
+    {
+      "page": "/app/visao-geral",
+      "regex": "^/app/visao\\-geral(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/app/visao\\-geral(?:/)?$"
+    },
+    {
+      "page": "/contato",
+      "regex": "^/contato(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/contato(?:/)?$"
+    },
+    {
+      "page": "/favicon.ico",
+      "regex": "^/favicon\\.ico(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/favicon\\.ico(?:/)?$"
+    },
+    {
+      "page": "/login",
+      "regex": "^/login(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/login(?:/)?$"
+    },
+    {
+      "page": "/raio-x",
+      "regex": "^/raio\\-x(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/raio\\-x(?:/)?$"
+    },
+    {
+      "page": "/saude",
+      "regex": "^/saude(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/saude(?:/)?$"
+    }
+  ],
+  "dataRoutes": [],
+  "rsc": {
+    "header": "rsc",
+    "varyHeader": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
+    "prefetchHeader": "next-router-prefetch",
+    "didPostponeHeader": "x-nextjs-postponed",
+    "contentTypeHeader": "text/x-component",
+    "suffix": ".rsc",
+    "prefetchSegmentHeader": "next-router-segment-prefetch",
+    "prefetchSegmentSuffix": ".segment.rsc",
+    "prefetchSegmentDirSuffix": ".segments",
+    "clientParamParsing": false,
+    "dynamicRSCPrerender": false
+  },
+  "rewriteHeaders": {
+    "pathHeader": "x-nextjs-rewritten-path",
+    "queryHeader": "x-nextjs-rewritten-query"
+  }
+}
