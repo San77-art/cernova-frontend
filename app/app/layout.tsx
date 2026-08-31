@@ -1,48 +1,20 @@
 ﻿"use client";
 import { signOut, useSession } from "next-auth/react";
-import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
 import Link from "next/link";
 
+// ⚠️ TEMPORÁRIO: Removed session validation for demo
+// TODO: Fix NextAuth session persistence before production
+
 export default function AppLayout({ children }: { children: React.ReactNode }) {
-  const { data: session, status } = useSession();
-  const router = useRouter();
-  const [redirected, setRedirected] = useState(false);
+  const { data: session } = useSession();
 
-  useEffect(() => {
-    console.log("🔍 Session Status:", status);
-    console.log("👤 Session Data:", session);
-
-    if (status === "unauthenticated" && !redirected) {
-      console.log("❌ UNAUTHENTICATED - Redirecting to login");
-      setRedirected(true);
-      router.push("/login");
-    }
-  }, [status, redirected, router]);
-
-  // Mostrar loading enquanto valida sessão
-  if (status === "loading") {
-    return (
-      <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 flex items-center justify-center">
-        <div className="text-white text-xl">Validando sessão...</div>
-      </div>
-    );
-  }
-
-  // Se não autenticado, não renderizar nada (vai redirecionar)
-  if (status === "unauthenticated") {
-    return null;
-  }
-
-  // Renderizar conteúdo autenticado
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
-      {/* Header */}
       <header className="bg-slate-900 border-b border-slate-700 p-6">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           <h1 className="text-2xl font-bold text-amber-500">Cernova</h1>
           <div className="flex items-center gap-4">
-            <span className="text-slate-300">{session?.user?.email}</span>
+            <span className="text-slate-300">{session?.user?.email || "Demo User"}</span>
             <button
               onClick={() => signOut()}
               className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded"
@@ -53,7 +25,6 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
         </div>
       </header>
       <div className="flex">
-        {/* Sidebar */}
         <aside className="w-64 bg-slate-900 border-r border-slate-700 p-6">
           <nav className="space-y-2">
             <Link href="/app/visao-geral" className="block text-slate-300 hover:text-amber-500 p-3 rounded">
@@ -88,7 +59,6 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
             </Link>
           </nav>
         </aside>
-        {/* Main Content */}
         <main className="flex-1 p-8">
           {children}
         </main>
