@@ -1,8 +1,7 @@
-﻿import bcrypt from "bcrypt";
+﻿// app/api/auth/login/route.ts
+import bcrypt from "bcrypt";
 import { generateJWT } from "@/lib/jwt";
-import { PrismaClient } from "@prisma/client";
-
-const prisma = new PrismaClient();
+import { queryOne } from "@/lib/db";
 
 export async function POST(req: Request) {
   try {
@@ -15,9 +14,10 @@ export async function POST(req: Request) {
       );
     }
 
-    const user = await prisma.user.findUnique({
-      where: { email },
-    });
+    const user = await queryOne(
+      "SELECT id, email, name, password FROM users WHERE email = $1",
+      [email]
+    );
 
     if (!user) {
       return Response.json(

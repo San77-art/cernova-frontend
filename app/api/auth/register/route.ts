@@ -1,8 +1,9 @@
-﻿import bcrypt from "bcrypt";
+﻿// app/api/auth/register/route.ts
+import bcrypt from "bcrypt";
 import { generateJWT } from "@/lib/jwt";
-import { PrismaClient } from "@prisma/client";
+import { query, queryOne } from "@/lib/db";
+import { randomUUID } from "crypto";
 
-const prisma = new PrismaClient();
 const SALT_ROUNDS = 12;
 
 export async function POST(req: Request) {
@@ -16,34 +17,36 @@ export async function POST(req: Request) {
       );
     }
 
-    const existingUser = await prisma.user.findUnique({
-      where: { email },
-    });
+    // Verificar se existe
+    const existing = await queryOne(
+      "SELECT id FROM users WHERE email = $1",
+      [email]
+    );
 
-    if (existingUser) {
+    if (existing) {
       return Response.json(
         { error: "Email ja cadastrado" },
         { status: 409 }
       );
     }
 
+    // Hash senha
     const hashedPassword = await bcrypt.hash(password, SALT_ROUNDS);
+    const userId = randomUUID();
 
-    const user = await prisma.user.create({
-      data: {
-        email,
-        password: hashedPassword,
-        name: name || email.split("@")[0],
-      },
-    });
+    // Inserir no banco
+    await query(
+      "INSERT INTO users (id, email, password, name) VALUES ($1, $2, $3, $4)",
+      [userId, email, hashedPassword, name || email.split("@")[0]]
+    );
 
-    const token = generateJWT(user.id);
+    const token = generateJWT(userId);
 
     return Response.json(
       { 
         success: true, 
         token, 
-        user: { id: user.id, email: user.email, name: user.name }
+        user: { id: userId, email, name }
       },
       { status: 201 }
     );
