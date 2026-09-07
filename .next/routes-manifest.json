@@ -21,16 +21,7 @@
     "afterFiles": [],
     "fallback": []
   },
-  "dynamicRoutes": [
-    {
-      "page": "/api/auth/[...nextauth]",
-      "regex": "^/api/auth/(.+?)(?:/)?$",
-      "routeKeys": {
-        "nxtPnextauth": "nxtPnextauth"
-      },
-      "namedRegex": "^/api/auth/(?<nxtPnextauth>.+?)(?:/)?$"
-    }
-  ],
+  "dynamicRoutes": [],
   "staticRoutes": [
     {
       "page": "/",
@@ -57,16 +48,16 @@
       "namedRegex": "^/agro(?:/)?$"
     },
     {
-      "page": "/api/health",
-      "regex": "^/api/health(?:/)?$",
+      "page": "/api/auth/login",
+      "regex": "^/api/auth/login(?:/)?$",
       "routeKeys": {},
-      "namedRegex": "^/api/health(?:/)?$"
+      "namedRegex": "^/api/auth/login(?:/)?$"
     },
     {
-      "page": "/api/raio-x",
-      "regex": "^/api/raio\\-x(?:/)?$",
+      "page": "/api/auth/register",
+      "regex": "^/api/auth/register(?:/)?$",
       "routeKeys": {},
-      "namedRegex": "^/api/raio\\-x(?:/)?$"
+      "namedRegex": "^/api/auth/register(?:/)?$"
     },
     {
       "page": "/app/00-cadastro",
