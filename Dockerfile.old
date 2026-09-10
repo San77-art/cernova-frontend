@@ -1,0 +1,27 @@
+FROM node:20-alpine
+
+WORKDIR /app
+
+# Copiar APENAS package.json
+COPY package*.json ./
+
+# Instalar dependências
+RUN npm install --legacy-peer-deps
+
+# Copiar código
+COPY . .
+
+# Build AQUI (demora mas funciona 100%)
+RUN npm run build
+
+# Remover dev dependencies
+RUN npm prune --omit=dev
+
+# Variáveis de ambiente
+ENV NEXTAUTH_SECRET=WpTLNfAlgWt4mCA4ZsU32YS7h8OskrgWBIatdniPpKM=
+ENV NEXTAUTH_URL=https://cernova.com.br
+ENV NODE_ENV=production
+
+EXPOSE 3000
+
+CMD ["npm", "start"]
